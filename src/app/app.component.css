@@ -1,0 +1,40 @@
+.container{
+    box-shadow: 0 10px 1px rgba(0, 0, 0, 0.2);
+}
+
+
+
+table{
+    border-spacing: 0;
+    border-collapse: collapse;
+    width: 100%;
+    margin: 100px auto;
+}
+
+td, th{
+    border: solid 1px #ccc;
+    padding: 5px;
+}
+
+tr:nth-child(even){
+    background-color: #eee;
+    /* le dará este color a las filas de a par */
+}
+
+th:nth-child(n+3),
+td:nth-child(n+3){
+    text-align: center;
+/* centrará desde la tercera linea  */
+}
+
+tbody tr:hover{
+    background-color: rgb(160,222,225);
+    /* la pasar el mouse este color aparecerá  */
+}
+
+thead{
+    background-color: #1D85FF;
+    color:white;
+    position: sticky;
+    top: 0;
+}
