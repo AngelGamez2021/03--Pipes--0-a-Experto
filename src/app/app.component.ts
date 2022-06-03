@@ -18,6 +18,14 @@ export class AppComponent {
 
   salario: number = 1234.5;
 
+  idioma: string = ''
+
+  miNombre: string = 'AngEl GAmeZ'
+
+  domUrl: string = 'https://www.youtube.com/embed/i-oYrcNtc2s"'
+
+  activar: boolean = true;
+
   
   valorPromesa = new Promise<string>((resolve)=>{
   
@@ -30,11 +38,6 @@ export class AppComponent {
   fecha: Date = new Date();
 
 
-
-
-
-
-
   heroe = {
     nombre: 'Gokú',
     clave: 'Sayayin',
@@ -43,6 +46,19 @@ export class AppComponent {
       calle: 'Montaña Pao',
       casa: 1
     }
+  }
+
+  frances(idioma: string){
+    this.idioma='fr'
+  }
+
+   ingles(idioma: string){
+    this.idioma='en'
+  }
+
+  espanol(idioma: string){
+    this.idioma='es'
+
   }
 
 

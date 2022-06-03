@@ -102,23 +102,90 @@
         <td>{{ fecha | date }}</td>
       </tr>
 
-       <!-- fecha: medium -->
-       <tr>
+      <!-- fecha: medium -->
+      <tr>
         <td>{{ fecha }}</td>
         <td>date:'medium'</td>
-        <td>{{ fecha | date:'medium' }}</td>
+        <td>{{ fecha | date: "medium" }}</td>
       </tr>
 
-       <!-- fecha: short -->
-       <tr>
+      <!-- fecha: short -->
+      <tr>
         <td>{{ fecha }}</td>
         <td>date:'MMMM - dd'</td>
-        <td>{{ fecha | date:'MMMM - dd' }}</td>
+        <td>{{ fecha | date: "MMMM - dd" }}</td>
       </tr>
-   
-   
-   
-   
+
+      <!-- para la localizacion del idioma actual  ng add @angular/localize -->
+      <!-- para lo de del idioma locales:
+      ng add @angular/localize 
+      Luego en el modulo se importa lo de los idiomas
+      import {registerLocaleData} from '@angular/common'
+      import localEs from '@angular/common/locales/es 
+      
+      ahi mismo una funcion
+
+      registerLocaleData(localEs)
+
+      y luego en los providers
+
+      {provide: LOCALE_ID, este lo importamos del angular core
+       useValue:'es'
+      }
+      
+      '; -->
+
+      <!-- fecha: ingles -->
+      <tr>
+        <td>{{ fecha }}</td>
+        <td>fecha | date:'MMMM - dd':'':'en'</td>
+        <td>{{ fecha | date: "MMMM - dd":"":"en" }}</td>
+      </tr>
+
+      <!-- fecha: Frances Tienes que importar en el module -->
+      <tr>
+        <td>{{ fecha }}</td>
+        <td>fecha | date:'MMMM - dd':'':'fr'</td>
+        <td>{{ fecha | date: "MMMM - dd":"":"fr" }}</td>
+      </tr>
+
+      <!-- fecha: Con botones de idiomas -->
+      <tr>
+        <td>{{ fecha }}</td>
+        <td>
+          date:'MMMM - dd':'':'{{ idioma }}'
+          <br />
+          <button (click)="espanol(idioma)">Español</button>
+          <button (click)="ingles(idioma)">Ingles</button>
+          <button (click)="frances(idioma)">Frances</button>
+        </td>
+        <td>{{ fecha | date: "MMMM - dd":"":idioma }}</td>
+      </tr>
+
+      <!-- PIPES personalizado 
+    ng g p pipes/personalizado-->
+      <tr>
+        <td>{{ miNombre }}</td>
+        <td>personalizado {{ miNombre }}</td>
+        <td>{{ miNombre | personalizado }}</td>
+      </tr>
+
+
+        <!-- activar-descativar-->
+        <tr>
+          <td>{{ nombre }}</td>
+          <td>
+            constraseña: {{activar}}
+            <br>
+            <button (click)="activar = !activar">Activar/Desactivar</button>
+          </td>
+          <td>{{ nombre | contrasena:activar}}</td>
+        </tr>
+
+
+
+
+
     </tbody>
   </table>
 </div>
@@ -130,4 +197,22 @@
 
     {{ heroe | json }}
   </pre>
+</div>
+
+
+<!-- creacion del pipes para que aparezca el video de youtube de confianza -->
+<h3>Dom Seguro</h3>
+<hr />
+<div>
+  <div>
+    <iframe
+      width="560"
+      height="315"
+      [src]="domUrl | domseguro"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    ></iframe>
+  </div>
 </div>
